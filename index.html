@@ -1,603 +1,1170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlobalOffice Project | Workplace Management</title>
+
+  <title>GlobalOffice Project | Productivity & Collaboration</title>
+
 
   <!-- Materialize CSS -->
+
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     rel="stylesheet"
   >
 
+
   <!-- Material Icons -->
+
   <link
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet"
   >
 
+
   <style>
 
+    /* =========================================
+       GLOBAL COLORS
+    ========================================= */
+
     :root {
-      --primary: #165d9c;
-      --primary-dark: #0d426f;
-      --secondary: #2384c6;
-      --accent: #18a673;
-      --light: #f4f7fa;
-      --border: #dfe6ed;
-      --text: #263746;
-      --muted: #6d7b87;
-      --white: #ffffff;
+
+      --blue: #0078d4;
+      --blue-dark: #005a9e;
+      --blue-light: #eaf4fc;
+
+      --green: #107c10;
+      --orange: #ff8c00;
+      --purple: #8764b8;
+      --teal: #038387;
+      --red: #d83b01;
+
+      --background: #f5f5f5;
+      --surface: #ffffff;
+
+      --text: #242424;
+      --muted: #616161;
+
+      --border: #dedede;
+
     }
+
+
+    /* =========================================
+       BODY
+    ========================================= */
 
     * {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      background: var(--light);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* =========================
-       NAVBAR
-    ========================= */
+    body {
+
+      margin: 0;
+
+      background: var(--background);
+
+      color: var(--text);
+
+      font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    }
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
 
     nav {
-      height: 68px;
-      line-height: 68px;
+
+      height: 64px;
+
+      line-height: 64px;
+
       background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,.06);
-      border-bottom: 1px solid var(--border);
+
+      border-bottom: 1px solid #e5e5e5;
+
+      box-shadow:
+        0 1px 5px rgba(0, 0, 0, 0.06);
+
     }
+
 
     .nav-wrapper {
-      height: 68px;
+
+      height: 64px;
+
     }
+
 
     .brand-logo {
+
       display: flex !important;
+
       align-items: center;
-      height: 68px;
-      color: var(--text) !important;
+
+      height: 64px;
+
+      color: #242424 !important;
+
       font-size: 21px !important;
-      font-weight: 700;
+
+      font-weight: 600;
+
     }
 
-    .brand-symbol {
+
+    /* Original GlobalOffice logo mark */
+
+    .global-mark {
+
       width: 38px;
+
       height: 38px;
-      margin-right: 12px;
-      border-radius: 7px;
-      background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 21px;
-      font-weight: bold;
+
+      margin-right: 11px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      grid-template-rows: 1fr 1fr;
+
+      gap: 3px;
+
     }
+
+
+    .global-mark span {
+
+      display: block;
+
+      border-radius: 2px;
+
+    }
+
+
+    .mark-blue {
+      background: var(--blue);
+    }
+
+    .mark-green {
+      background: var(--green);
+    }
+
+    .mark-orange {
+      background: var(--orange);
+    }
+
+    .mark-purple {
+      background: var(--purple);
+    }
+
 
     .nav-links {
+
       float: right;
+
     }
+
 
     .nav-links a {
-      color: #52616d;
+
+      color: #444;
+
       font-size: 14px;
+
       margin-left: 24px;
-      transition: .2s;
+
+      transition: 0.2s;
+
     }
+
 
     .nav-links a:hover {
-      color: var(--primary);
+
+      color: var(--blue);
+
     }
 
-    /* =========================
+
+    /* =========================================
        PROJECT NOTICE
-    ========================= */
+    ========================================= */
 
     .project-notice {
-      background: #edf6fc;
-      color: #315b78;
-      border-bottom: 1px solid #d4e8f5;
+
+      background: #f2f2f2;
+
+      color: #555;
+
+      border-bottom: 1px solid #ddd;
+
       text-align: center;
+
       padding: 9px 15px;
+
       font-size: 12px;
+
     }
 
-    /* =========================
+
+    /* =========================================
        HERO
-    ========================= */
+    ========================================= */
 
     .hero {
-      position: relative;
-      padding: 100px 20px 125px;
+
+      padding: 95px 20px 125px;
+
       color: white;
+
       text-align: center;
 
       background:
+
         linear-gradient(
-          rgba(10, 43, 72, .91),
-          rgba(16, 84, 132, .90)
+          110deg,
+          rgba(0, 120, 212, 0.96),
+          rgba(0, 90, 158, 0.94)
         ),
-        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85");
+
+        url(
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85"
+        );
 
       background-size: cover;
+
       background-position: center;
+
     }
+
 
     .hero-label {
+
       display: inline-block;
-      padding: 7px 15px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      text-transform: uppercase;
-      letter-spacing: 1.7px;
-      font-size: 11px;
+
+      padding: 7px 16px;
+
       margin-bottom: 18px;
+
+      border-radius: 3px;
+
+      background:
+        rgba(255, 255, 255, 0.14);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.3);
+
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
     }
+
 
     .hero h3 {
-      font-size: 42px;
+
       margin: 0 0 18px;
+
+      font-size: 43px;
+
       font-weight: 600;
+
     }
+
 
     .hero p {
-      max-width: 760px;
+
+      max-width: 780px;
+
       margin: auto;
+
       font-size: 17px;
+
       line-height: 1.8;
-      opacity: .93;
+
+      opacity: 0.95;
+
     }
+
 
     .hero-buttons {
+
       margin-top: 30px;
+
     }
+
 
     .hero-btn {
+
       margin: 5px;
-      border-radius: 4px;
+
       text-transform: none;
+
+      border-radius: 3px;
+
       font-weight: 600;
+
     }
+
 
     .hero-primary {
+
       background: white;
-      color: var(--primary);
+
+      color: var(--blue);
+
     }
+
+
+    .hero-primary:hover {
+
+      background: #f2f2f2;
+
+    }
+
 
     .hero-secondary {
+
       background: transparent;
-      border: 1px solid rgba(255,255,255,.6);
+
+      border:
+        1px solid rgba(255,255,255,.65);
+
     }
 
-    /* =========================
-       MAIN CARD
-    ========================= */
+
+    /* =========================================
+       CONTACT FORM
+    ========================================= */
 
     .form-card {
-      margin-top: -70px;
+
+      margin-top: -65px;
+
       position: relative;
-      z-index: 5;
+
+      z-index: 3;
+
     }
+
 
     .main-card {
+
       background: white;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 35px rgba(20,55,80,.12);
+
+      border-radius: 4px;
+
+      border:
+        1px solid var(--border);
+
+      box-shadow:
+        0 7px 25px rgba(0,0,0,.10);
+
     }
+
 
     .main-card .card-content {
+
       padding: 35px;
+
     }
+
 
     .card-title {
+
       font-size: 23px !important;
+
       font-weight: 600 !important;
-      color: var(--text);
+
     }
 
+
     .card-description {
+
       color: var(--muted);
+
       line-height: 1.7;
+
       margin-bottom: 28px;
+
     }
+
 
     .input-field input:focus,
     .input-field textarea:focus {
-      border-bottom: 1px solid var(--primary) !important;
-      box-shadow: 0 1px 0 0 var(--primary) !important;
+
+      border-bottom:
+        1px solid var(--blue) !important;
+
+      box-shadow:
+        0 1px 0 0 var(--blue) !important;
+
     }
+
 
     .input-field input:focus + label,
     .input-field textarea:focus + label {
-      color: var(--primary) !important;
+
+      color: var(--blue) !important;
+
     }
+
+
+    .input-field .prefix.active {
+
+      color: var(--blue);
+
+    }
+
 
     .submit-btn {
-      background: var(--primary);
-      border-radius: 4px;
+
+      background: var(--blue);
+
+      border-radius: 3px;
+
       text-transform: none;
+
       font-weight: 600;
-      padding: 0 25px;
+
     }
+
 
     .submit-btn:hover {
-      background: var(--primary-dark);
+
+      background: var(--blue-dark);
+
     }
 
-    /* =========================
-       SECTION
-    ========================= */
+
+    /* =========================================
+       SECTION STYLES
+    ========================================= */
 
     .section-heading {
+
       font-weight: 600;
-      color: var(--text);
+
+      color: #242424;
+
     }
+
 
     .section-description {
+
       max-width: 720px;
-      margin: 0 auto 38px;
+
+      margin:
+        0 auto 40px;
+
       color: var(--muted);
+
       line-height: 1.7;
+
     }
 
-    /* =========================
-       FEATURES
-    ========================= */
 
-    .feature-card {
+    /* =========================================
+       APPS SECTION
+    ========================================= */
+
+    .features-section {
+
+      padding: 70px 20px;
+
+    }
+
+
+    .app-card {
+
       height: 100%;
+
       background: white;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      box-shadow: none;
-      transition: .2s ease;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 4px;
+
+      box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+
+      transition: 0.2s ease;
+
     }
 
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(20,55,80,.09);
+
+    .app-card:hover {
+
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.10);
+
     }
 
-    .feature-card .card-content {
+
+    .app-card .card-content {
+
       padding: 28px;
+
     }
 
-    .feature-icon {
+
+    .app-icon {
+
       width: 58px;
+
       height: 58px;
-      border-radius: 8px;
-      margin: auto;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
-      background: #eaf3fa;
-      color: var(--primary);
+
+      color: white;
+
+      border-radius: 3px;
+
     }
 
-    .feature-icon i {
-      font-size: 30px;
+
+    .app-icon i {
+
+      font-size: 31px;
+
     }
 
-    .feature-card h5 {
-      font-size: 18px;
+
+    .app-blue {
+      background: var(--blue);
+    }
+
+    .app-green {
+      background: var(--green);
+    }
+
+    .app-orange {
+      background: var(--orange);
+    }
+
+    .app-purple {
+      background: var(--purple);
+    }
+
+    .app-teal {
+      background: var(--teal);
+    }
+
+    .app-red {
+      background: var(--red);
+    }
+
+
+    .app-card h5 {
+
+      font-size: 19px;
+
       font-weight: 600;
-      margin-top: 20px;
+
+      margin-top: 18px;
+
     }
 
-    .feature-card p {
+
+    .app-card p {
+
       color: var(--muted);
+
       line-height: 1.7;
+
     }
 
-    /* =========================
-       OFFICE DASHBOARD
-    ========================= */
+
+    /* =========================================
+       DASHBOARD
+    ========================================= */
 
     .dashboard-section {
+
       background: #ffffff;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 65px 20px;
+
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+
+      padding: 70px 20px;
+
     }
 
-    .dashboard-box {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 8px;
+
+    .dashboard-card {
+
+      background: #fafafa;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 4px;
+
       padding: 25px;
+
       margin-bottom: 20px;
+
     }
+
 
     .dashboard-number {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--primary);
+
+      font-size: 29px;
+
+      font-weight: 600;
+
+      color: var(--blue);
+
     }
+
 
     .dashboard-label {
+
       color: var(--muted);
+
       font-size: 13px;
+
     }
 
-    .progress {
-      background: #dce8f1;
+
+    .dashboard-list {
+
+      border-top:
+        1px solid var(--border);
+
+      margin-top: 15px;
+
+      padding-top: 12px;
+
     }
 
-    .progress .determinate {
-      background: var(--secondary);
+
+    .dashboard-list div {
+
+      padding: 9px 0;
+
+      font-size: 14px;
+
     }
 
-    /* =========================
-       HOW IT WORKS
-    ========================= */
+
+    /* =========================================
+       WORKFLOW
+    ========================================= */
 
     .how-section {
-      padding: 65px 20px;
+
+      padding: 70px 20px;
+
     }
 
-    .step {
-      padding: 15px 25px;
+
+    .workflow-step {
+
+      text-align: center;
+
+      padding:
+        15px 20px;
+
     }
+
 
     .step-number {
-      width: 42px;
-      height: 42px;
-      line-height: 42px;
+
+      width: 40px;
+
+      height: 40px;
+
+      line-height: 40px;
+
       margin: auto;
+
       border-radius: 50%;
-      background: #e9f3fa;
-      color: var(--primary);
-      font-weight: bold;
-    }
 
-    .step h6 {
+      background:
+        var(--blue-light);
+
+      color: var(--blue);
+
       font-weight: 600;
-      font-size: 16px;
+
+    }
+
+
+    .workflow-step i {
+
       margin-top: 15px;
+
+      color: var(--blue);
+
     }
 
-    .step p {
+
+    .workflow-step h6 {
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+    }
+
+
+    .workflow-step p {
+
       color: var(--muted);
+
       line-height: 1.7;
+
     }
 
-    /* =========================
-       OFFICE SERVICES
-    ========================= */
+
+    /* =========================================
+       SERVICES
+    ========================================= */
 
     .services-section {
-      background: #f0f5f9;
-      padding: 65px 20px;
+
+      background: #f3f3f3;
+
+      padding: 70px 20px;
+
     }
+
 
     .service-box {
+
       background: white;
-      border: 1px solid var(--border);
-      border-radius: 7px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 4px;
+
       padding: 27px;
-      min-height: 205px;
+
+      min-height: 200px;
+
       margin-bottom: 20px;
+
     }
+
 
     .service-box i {
-      color: var(--primary);
-      font-size: 30px;
+
+      color: var(--blue);
+
+      font-size: 31px;
+
     }
+
 
     .service-box h6 {
+
       font-size: 17px;
+
       font-weight: 600;
+
     }
+
 
     .service-box p {
+
       color: var(--muted);
+
       line-height: 1.7;
+
     }
 
-    /* =========================
+
+    /* =========================================
+       PRODUCTIVITY STRIP
+    ========================================= */
+
+    .productivity {
+
+      padding: 60px 20px;
+
+      background: white;
+
+      text-align: center;
+
+    }
+
+
+    .productivity-item {
+
+      padding: 15px;
+
+    }
+
+
+    .productivity-item i {
+
+      font-size: 38px;
+
+    }
+
+
+    .productivity-item h6 {
+
+      font-weight: 600;
+
+    }
+
+
+    .productivity-item p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+    }
+
+
+    .color-blue {
+      color: var(--blue);
+    }
+
+    .color-green {
+      color: var(--green);
+    }
+
+    .color-orange {
+      color: var(--orange);
+    }
+
+    .color-purple {
+      color: var(--purple);
+    }
+
+
+    /* =========================================
        SECURITY
-    ========================= */
+    ========================================= */
 
     .security-section {
-      background: white;
-      padding: 60px 20px;
+
+      background: #f7f7f7;
+
+      padding: 65px 20px;
+
     }
+
 
     .security-item {
+
       text-align: center;
+
       padding: 20px;
+
     }
+
 
     .security-item i {
-      color: var(--accent);
+
+      color: var(--green);
+
       font-size: 38px;
+
     }
+
 
     .security-item h6 {
+
       font-weight: 600;
-      font-size: 16px;
+
     }
+
 
     .security-item p {
+
       color: var(--muted);
+
       line-height: 1.6;
+
     }
 
-    /* =========================
-       ANNOUNCEMENT
-    ========================= */
 
-    .announcement {
-      background: #eaf5ff;
-      border-left: 4px solid var(--primary);
-      padding: 22px 25px;
-      border-radius: 4px;
-      margin-top: 25px;
-    }
-
-    .announcement strong {
-      color: var(--primary-dark);
-    }
-
-    .announcement p {
-      color: #526b7c;
-      margin-bottom: 0;
-    }
-
-    /* =========================
+    /* =========================================
        SUPPORT
-    ========================= */
+    ========================================= */
 
     .chat-section {
+
       background:
+
         linear-gradient(
-          135deg,
-          #0d426f,
-          #1674b5
+          120deg,
+          #005a9e,
+          #0078d4
         );
 
       color: white;
+
       text-align: center;
-      padding: 70px 20px;
+
+      padding: 75px 20px;
+
     }
+
 
     .chat-section h4 {
+
       font-weight: 600;
+
     }
+
 
     .chat-section p {
-      max-width: 650px;
-      margin: 10px auto 28px;
-      opacity: .9;
+
+      max-width: 680px;
+
+      margin:
+        10px auto 28px;
+
       line-height: 1.7;
+
+      opacity: .92;
+
     }
+
 
     .chat-btn {
+
       background: white;
-      color: var(--primary);
-      border-radius: 4px;
+
+      color: var(--blue);
+
+      border-radius: 3px;
+
       text-transform: none;
+
       font-weight: 600;
+
     }
 
-    /* =========================
+
+    .chat-btn:hover {
+
+      background: #f3f3f3;
+
+    }
+
+
+    /* =========================================
        FOOTER
-    ========================= */
+    ========================================= */
 
     footer {
-      background: #ffffff !important;
-      color: #687782 !important;
-      border-top: 1px solid var(--border);
+
+      background: white !important;
+
+      color: #666 !important;
+
+      border-top:
+        1px solid var(--border);
+
       padding: 30px 0;
+
     }
+
 
     .footer-brand {
-      color: var(--text);
+
+      color: #242424;
+
       font-size: 18px;
+
       font-weight: 600;
+
     }
+
 
     .footer-note {
+
+      color: #888;
+
       font-size: 12px;
-      color: #8a969e;
-      margin-top: 7px;
+
+      margin-top: 8px;
+
     }
 
-    /* =========================
+
+    /* =========================================
        MOBILE
-    ========================= */
+    ========================================= */
 
     @media(max-width: 600px) {
 
       .nav-links {
+
         display: none;
+
       }
+
 
       .hero {
-        padding: 70px 20px 105px;
+
+        padding:
+          70px 20px 105px;
+
       }
+
 
       .hero h3 {
-        font-size: 29px;
+
+        font-size: 30px;
+
       }
+
 
       .hero p {
+
         font-size: 15px;
+
       }
 
+
       .main-card .card-content {
-        padding: 25px 20px;
+
+        padding:
+          25px 20px;
+
       }
 
     }
 
   </style>
 
-  <!-- Optional Live Chat -->
+
+  <!-- =========================================
+       OPTIONAL LIVE CHAT
+  ========================================= -->
+
   <script type="text/javascript">
+
     var _smartsupp = _smartsupp || {};
-    _smartsupp.key = 'b1937b836dadbde1d729303dd3bf8876732a22ee';
+
+    _smartsupp.key =
+      'b1937b836dadbde1d729303dd3bf8876732a22ee';
 
     window.smartsupp || (function(d) {
-      var s, c, o = smartsupp = function() {
-        o._.push(arguments)
-      };
+
+      var s, c, o =
+        smartsupp = function() {
+          o._.push(arguments)
+        };
 
       o._ = [];
 
-      s = d.getElementsByTagName('script')[0];
-      c = d.createElement('script');
+      s =
+        d.getElementsByTagName('script')[0];
+
+      c =
+        d.createElement('script');
 
       c.type = 'text/javascript';
+
       c.charset = 'utf-8';
+
       c.async = true;
-      c.src = 'https://www.smartsuppchat.com/loader.js?';
+
+      c.src =
+        'https://www.smartsuppchat.com/loader.js?';
 
       s.parentNode.insertBefore(c, s);
+
     })(document);
+
   </script>
 
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================
      NAVBAR
-========================= -->
+========================================= -->
 
 <nav>
 
   <div class="nav-wrapper container">
 
-    <a href="#" class="brand-logo">
+    <a
+      href="#"
+      class="brand-logo"
+    >
 
-      <span class="brand-symbol">
-        G
+      <span class="global-mark">
+
+        <span class="mark-blue"></span>
+
+        <span class="mark-green"></span>
+
+        <span class="mark-orange"></span>
+
+        <span class="mark-purple"></span>
+
       </span>
 
-      GlobalOffice Project
+      GlobalOffice
 
     </a>
 
+
     <div class="nav-links">
 
-      <a href="#features">Features</a>
-      <a href="#services">Services</a>
-      <a href="#security">Security</a>
-      <a href="#support">Support</a>
+      <a href="#apps">
+        Apps
+      </a>
+
+      <a href="#dashboard">
+        Dashboard
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+      <a href="#support">
+        Support
+      </a>
 
     </div>
 
@@ -606,53 +1173,73 @@
 </nav>
 
 
-<!-- =========================
+<!-- =========================================
      PROJECT NOTICE
-========================= -->
+========================================= -->
 
 <div class="project-notice">
 
-  <i class="material-icons tiny">info_outline</i>
+  <i class="material-icons tiny">
+    info_outline
+  </i>
 
   &nbsp;
 
-  Independent personal project — GlobalOffice Project is a
-  standalone workplace-management concept.
+  GlobalOffice Project is an independent personal
+  productivity-suite concept.
 
 </div>
 
 
-<!-- =========================
+<!-- =========================================
      HERO
-========================= -->
+========================================= -->
 
 <div class="hero">
 
   <div class="hero-label">
-    Modern Workplace Platform
+
+    Productivity • Collaboration • Organization
+
   </div>
 
+
   <h3>
-    Welcome to GlobalOffice Project
+
+    Everything Your Workday Needs
+
   </h3>
 
+
   <p>
-    A centralized workspace concept designed to help teams
-    organize documents, coordinate projects, manage tasks,
-    communicate efficiently, and keep everyday office work
-    in one place.
+
+    GlobalOffice Project brings documents,
+    spreadsheets, presentations, communication,
+    files, meetings, notes, tasks, and collaboration
+    together in one modern workplace environment.
+
   </p>
+
 
   <div class="hero-buttons">
 
-    <a href="#features"
-       class="btn hero-btn hero-primary">
-      Explore Features
+    <a
+      href="#apps"
+      class="btn hero-btn hero-primary"
+    >
+
+      Explore Apps
+
     </a>
 
-    <a href="#support"
-       class="btn hero-btn hero-secondary">
-      Contact Support
+
+    <a
+      href="#contact"
+      class="btn hero-btn hero-secondary"
+    >
+
+      Contact Us
+
     </a>
 
   </div>
@@ -660,30 +1247,42 @@
 </div>
 
 
-<!-- =========================
-     CONTACT CARD
-========================= -->
+<!-- =========================================
+     CONTACT FORM
+========================================= -->
 
-<div class="container form-card">
+<div
+  class="container form-card"
+  id="contact"
+>
 
   <div class="card main-card">
 
     <div class="card-content">
 
       <span class="card-title">
-        Contact GlobalOffice
+
+        Contact GlobalOffice Project
+
       </span>
 
+
       <p class="card-description">
-        Have a question about this personal project?
-        Send a message and provide some details about
-        your request.
+
+        Have a question, suggestion, or feedback
+        about the GlobalOffice Project?
+        Enter your details below.
+
       </p>
+
 
       <form
         action="https://api.web3forms.com/submit"
         method="POST"
       >
+
+
+        <!-- Web3Forms Access Key -->
 
         <input
           type="hidden"
@@ -691,11 +1290,17 @@
           value="727472ef-0e91-4efc-b421-2c3d16398117"
         >
 
+
+        <!-- Email Subject -->
+
         <input
           type="hidden"
           name="subject"
-          value="GlobalOffice Project Contact"
+          value="GlobalOffice Project Contact Request"
         >
+
+
+        <!-- Redirect -->
 
         <input
           type="hidden"
@@ -703,74 +1308,95 @@
           value="https://myheritagepage.github.io/loading.html"
         >
 
+
         <div class="row">
 
-          <div class="input-field col s12 m6">
+
+          <!-- FULL NAME -->
+
+          <div class="input-field col s12">
 
             <i class="material-icons prefix">
+
               person
+
             </i>
 
+
             <input
+              type="text"
+              id="full_name"
               name="name"
-              type="text"
               required
             >
 
-            <label>Full Name</label>
+
+            <label for="full_name">
+
+              Full Name
+
+            </label>
 
           </div>
 
 
-          <div class="input-field col s12 m6">
+          <!-- EMAIL -->
+
+          <div class="input-field col s12">
 
             <i class="material-icons prefix">
+
               email
+
             </i>
 
+
             <input
-              name="email"
               type="email"
+              id="email"
+              name="email"
               required
             >
 
-            <label>Email Address</label>
+
+            <label for="email">
+
+              Email Address
+
+            </label>
 
           </div>
 
 
+          <!-- PHONE -->
+
           <div class="input-field col s12">
 
             <i class="material-icons prefix">
-              business
+
+              phone
+
             </i>
+
 
             <input
-              name="organization"
-              type="text"
+              type="tel"
+              id="phone"
+              name="phone"
+              required
             >
 
-            <label>Organization / Team (Optional)</label>
+
+            <label for="phone">
+
+              Phone Number
+
+            </label>
 
           </div>
 
 
-          <div class="input-field col s12">
-
-            <i class="material-icons prefix">
-              message
-            </i>
-
-            <textarea
-              name="message"
-              class="materialize-textarea"
-              required
-            ></textarea>
-
-            <label>How Can We Help?</label>
-
-          </div>
-
+          <!-- SUBMIT BUTTON -->
 
           <div class="col s12 center">
 
@@ -778,15 +1404,19 @@
               type="submit"
               class="btn waves-effect waves-light submit-btn"
             >
+
               Submit Request
 
               <i class="material-icons right">
+
                 send
+
               </i>
 
             </button>
 
           </div>
+
 
         </div>
 
@@ -799,261 +1429,71 @@
 </div>
 
 
-<!-- =========================
-     FEATURES
-========================= -->
-
-<div class="container section" id="features">
-
-  <h4 class="center section-heading">
-    Workplace Features
-  </h4>
-
-  <p class="center section-description">
-    GlobalOffice Project brings common workplace activities
-    together into a single organized environment.
-  </p>
-
-
-  <div class="row">
-
-
-    <!-- Documents -->
-
-    <div class="col s12 m4">
-
-      <div class="card feature-card center">
-
-        <div class="card-content">
-
-          <div class="feature-icon">
-            <i class="material-icons">
-              folder
-            </i>
-          </div>
-
-          <h5>Document Management</h5>
-
-          <p>
-            Organize project files, office documents,
-            reports, forms, and shared resources.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- Tasks -->
-
-    <div class="col s12 m4">
-
-      <div class="card feature-card center">
-
-        <div class="card-content">
-
-          <div class="feature-icon">
-            <i class="material-icons">
-              checklist
-            </i>
-          </div>
-
-          <h5>Task Management</h5>
-
-          <p>
-            Track assignments, deadlines, priorities,
-            progress, and outstanding work.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- Team -->
-
-    <div class="col s12 m4">
-
-      <div class="card feature-card center">
-
-        <div class="card-content">
-
-          <div class="feature-icon">
-            <i class="material-icons">
-              groups
-            </i>
-          </div>
-
-          <h5>Team Collaboration</h5>
-
-          <p>
-            Keep teams connected with shared projects,
-            communication tools, and centralized information.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- Calendar -->
-
-    <div class="col s12 m4">
-
-      <div class="card feature-card center">
-
-        <div class="card-content">
-
-          <div class="feature-icon">
-            <i class="material-icons">
-              calendar_month
-            </i>
-          </div>
-
-          <h5>Calendar & Scheduling</h5>
-
-          <p>
-            Keep track of meetings, deadlines, appointments,
-            events, and important project dates.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- Reports -->
-
-    <div class="col s12 m4">
-
-      <div class="card feature-card center">
-
-        <div class="card-content">
-
-          <div class="feature-icon">
-            <i class="material-icons">
-              analytics
-            </i>
-          </div>
-
-          <h5>Reports & Insights</h5>
-
-          <p>
-            Review project progress and organize useful
-            information for planning and decision-making.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- Communication -->
-
-    <div class="col s12 m4">
-
-      <div class="card feature-card center">
-
-        <div class="card-content">
-
-          <div class="feature-icon">
-            <i class="material-icons">
-              forum
-            </i>
-          </div>
-
-          <h5>Office Communication</h5>
-
-          <p>
-            Provide a central place for announcements,
-            updates, discussions, and project communication.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
-     DASHBOARD PREVIEW
-========================= -->
-
-<div class="dashboard-section">
+<!-- =========================================
+     PRODUCTIVITY APPS
+========================================= -->
+
+<div
+  class="features-section"
+  id="apps"
+>
 
   <div class="container">
 
+
     <h4 class="center section-heading">
-      Office Overview
+
+      GlobalOffice Apps
+
     </h4>
 
+
     <p class="center section-description">
-      A simple dashboard-style overview for monitoring
-      everyday workplace activity.
+
+      Productivity tools designed around
+      the everyday needs of modern teams,
+      students, businesses, and workplaces.
+
     </p>
 
 
     <div class="row">
 
-      <div class="col s12 m3">
 
-        <div class="dashboard-box center">
+      <!-- WORD -->
 
-          <div class="dashboard-number">
-            24
-          </div>
+      <div class="col s12 m4">
 
-          <div class="dashboard-label">
-            Active Projects
-          </div>
+        <div class="card app-card">
 
-        </div>
+          <div class="card-content">
 
-      </div>
+            <div class="app-icon app-blue">
 
+              <i class="material-icons">
 
-      <div class="col s12 m3">
+                description
 
-        <div class="dashboard-box center">
+              </i>
 
-          <div class="dashboard-number">
-            68
-          </div>
-
-          <div class="dashboard-label">
-            Open Tasks
-          </div>
-
-        </div>
-
-      </div>
+            </div>
 
 
-      <div class="col s12 m3">
+            <h5>
 
-        <div class="dashboard-box center">
+              GlobalWord
 
-          <div class="dashboard-number">
-            142
-          </div>
+            </h5>
 
-          <div class="dashboard-label">
-            Shared Documents
+
+            <p>
+
+              Create professional documents,
+              reports, letters, resumes,
+              assignments, and business content.
+
+            </p>
+
           </div>
 
         </div>
@@ -1061,37 +1501,333 @@
       </div>
 
 
-      <div class="col s12 m3">
+      <!-- EXCEL -->
 
-        <div class="dashboard-box center">
+      <div class="col s12 m4">
 
-          <div class="dashboard-number">
-            12
-          </div>
+        <div class="card app-card">
 
-          <div class="dashboard-label">
-            Upcoming Meetings
+          <div class="card-content">
+
+            <div class="app-icon app-green">
+
+              <i class="material-icons">
+
+                grid_on
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalSheets
+
+            </h5>
+
+
+            <p>
+
+              Work with spreadsheets, formulas,
+              tables, calculations, charts,
+              budgets, and business data.
+
+            </p>
+
           </div>
 
         </div>
 
       </div>
 
-    </div>
+
+      <!-- POWERPOINT -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-orange">
+
+              <i class="material-icons">
+
+                slideshow
+
+              </i>
+
+            </div>
 
 
-    <div class="announcement">
+            <h5>
 
-      <strong>
-        <i class="material-icons tiny">campaign</i>
-        Office Announcement
-      </strong>
+              GlobalSlides
 
-      <p>
-        Keep project information organized and review
-        upcoming tasks regularly to maintain an efficient
-        workplace workflow.
-      </p>
+            </h5>
+
+
+            <p>
+
+              Create engaging presentations
+              with slides, layouts, visual
+              content, and presentation tools.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- OUTLOOK -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-purple">
+
+              <i class="material-icons">
+
+                mail
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalMail
+
+            </h5>
+
+
+            <p>
+
+              Manage workplace communication,
+              messages, contacts, and important
+              correspondence.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ONEDRIVE -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-teal">
+
+              <i class="material-icons">
+
+                cloud
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalDrive
+
+            </h5>
+
+
+            <p>
+
+              Store, organize, access, and share
+              documents and project files
+              from your workspace.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEAMS -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-red">
+
+              <i class="material-icons">
+
+                groups
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalTeams
+
+            </h5>
+
+
+            <p>
+
+              Collaborate with team members
+              through conversations, meetings,
+              shared workspaces, and projects.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CALENDAR -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-blue">
+
+              <i class="material-icons">
+
+                calendar_month
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalCalendar
+
+            </h5>
+
+
+            <p>
+
+              Schedule meetings, appointments,
+              events, reminders, and important
+              work deadlines.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- NOTES -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-orange">
+
+              <i class="material-icons">
+
+                note_alt
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalNotes
+
+            </h5>
+
+
+            <p>
+
+              Capture ideas, meeting notes,
+              checklists, research, and
+              project information.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TASKS -->
+
+      <div class="col s12 m4">
+
+        <div class="card app-card">
+
+          <div class="card-content">
+
+            <div class="app-icon app-green">
+
+              <i class="material-icons">
+
+                task_alt
+
+              </i>
+
+            </div>
+
+
+            <h5>
+
+              GlobalTasks
+
+            </h5>
+
+
+            <p>
+
+              Create assignments, track deadlines,
+              organize priorities, and monitor
+              project progress.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -1100,111 +1836,788 @@
 </div>
 
 
-<!-- =========================
-     HOW IT WORKS
-========================= -->
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<div
+  class="dashboard-section"
+  id="dashboard"
+>
+
+  <div class="container">
+
+
+    <h4 class="center section-heading">
+
+      Your Workday at a Glance
+
+    </h4>
+
+
+    <p class="center section-description">
+
+      A unified dashboard concept for bringing
+      important workplace information together.
+
+    </p>
+
+
+    <div class="row">
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-card center">
+
+          <div class="dashboard-number">
+
+            12
+
+          </div>
+
+          <div class="dashboard-label">
+
+            Recent Documents
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-card center">
+
+          <div class="dashboard-number">
+
+            8
+
+          </div>
+
+          <div class="dashboard-label">
+
+            Active Tasks
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-card center">
+
+          <div class="dashboard-number">
+
+            4
+
+          </div>
+
+          <div class="dashboard-label">
+
+            Upcoming Meetings
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-card center">
+
+          <div class="dashboard-number">
+
+            6
+
+          </div>
+
+          <div class="dashboard-label">
+
+            Shared Projects
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+
+      <!-- RECENT FILES -->
+
+      <div class="col s12 m6">
+
+        <div class="dashboard-card">
+
+          <h6>
+
+            Recent Files
+
+          </h6>
+
+
+          <div class="dashboard-list">
+
+
+            <div>
+
+              <i class="material-icons tiny color-blue">
+
+                description
+
+              </i>
+
+              Project Report.docx
+
+            </div>
+
+
+            <div>
+
+              <i class="material-icons tiny color-green">
+
+                grid_on
+
+              </i>
+
+              Quarterly Budget.xlsx
+
+            </div>
+
+
+            <div>
+
+              <i class="material-icons tiny color-orange">
+
+                slideshow
+
+              </i>
+
+              Team Presentation.pptx
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CALENDAR -->
+
+      <div class="col s12 m6">
+
+        <div class="dashboard-card">
+
+          <h6>
+
+            Upcoming Schedule
+
+          </h6>
+
+
+          <div class="dashboard-list">
+
+
+            <div>
+
+              <i class="material-icons tiny color-blue">
+
+                event
+
+              </i>
+
+              Project Planning Meeting
+
+            </div>
+
+
+            <div>
+
+              <i class="material-icons tiny color-purple">
+
+                event
+
+              </i>
+
+              Team Review
+
+            </div>
+
+
+            <div>
+
+              <i class="material-icons tiny color-orange">
+
+                alarm
+
+              </i>
+
+              Report Deadline
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     WORKFLOW
+========================================= -->
 
 <div class="how-section">
 
-  <div class="container center">
+  <div class="container">
 
-    <h4 class="section-heading">
-      How GlobalOffice Works
+
+    <h4 class="center section-heading">
+
+      Work Smarter
+
     </h4>
+
+
+    <p class="center section-description">
+
+      Move from an idea to a completed project
+      using a simple productivity workflow.
+
+    </p>
+
+
+    <div class="row">
+
+
+      <!-- CREATE -->
+
+      <div class="col s12 m3 workflow-step">
+
+        <div class="step-number">
+
+          1
+
+        </div>
+
+
+        <i class="material-icons medium">
+
+          lightbulb
+
+        </i>
+
+
+        <h6>
+
+          Create
+
+        </h6>
+
+
+        <p>
+
+          Start documents, spreadsheets,
+          presentations, notes, and projects.
+
+        </p>
+
+      </div>
+
+
+      <!-- STORE -->
+
+      <div class="col s12 m3 workflow-step">
+
+        <div class="step-number">
+
+          2
+
+        </div>
+
+
+        <i class="material-icons medium">
+
+          cloud_upload
+
+        </i>
+
+
+        <h6>
+
+          Store
+
+        </h6>
+
+
+        <p>
+
+          Organize your work and keep
+          important files together.
+
+        </p>
+
+      </div>
+
+
+      <!-- COLLABORATE -->
+
+      <div class="col s12 m3 workflow-step">
+
+        <div class="step-number">
+
+          3
+
+        </div>
+
+
+        <i class="material-icons medium">
+
+          groups
+
+        </i>
+
+
+        <h6>
+
+          Collaborate
+
+        </h6>
+
+
+        <p>
+
+          Share information, communicate,
+          and coordinate projects.
+
+        </p>
+
+      </div>
+
+
+      <!-- COMPLETE -->
+
+      <div class="col s12 m3 workflow-step">
+
+        <div class="step-number">
+
+          4
+
+        </div>
+
+
+        <i class="material-icons medium">
+
+          done_all
+
+        </i>
+
+
+        <h6>
+
+          Complete
+
+        </h6>
+
+
+        <p>
+
+          Track progress, meet deadlines,
+          and complete your work.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     SERVICES
+========================================= -->
+
+<div
+  class="services-section"
+  id="services"
+>
+
+  <div class="container">
+
+
+    <h4 class="center section-heading">
+
+      Workplace Services
+
+    </h4>
+
+
+    <p class="center section-description">
+
+      Additional capabilities for building
+      a complete workplace productivity platform.
+
+    </p>
+
+
+    <div class="row">
+
+
+      <!-- PROJECT MANAGEMENT -->
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+
+            business_center
+
+          </i>
+
+
+          <h6>
+
+            Project Management
+
+          </h6>
+
+
+          <p>
+
+            Plan projects, assign tasks,
+            monitor deadlines, and organize
+            team responsibilities.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- FILE SHARING -->
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+
+            share
+
+          </i>
+
+
+          <h6>
+
+            File Sharing
+
+          </h6>
+
+
+          <p>
+
+            Share documents and project
+            resources across your workspace.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEETINGS -->
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+
+            video_call
+
+          </i>
+
+
+          <h6>
+
+            Online Meetings
+
+          </h6>
+
+
+          <p>
+
+            Organize virtual meetings,
+            discussions, presentations,
+            and team sessions.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACTS -->
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+
+            contacts
+
+          </i>
+
+
+          <h6>
+
+            Contacts
+
+          </h6>
+
+
+          <p>
+
+            Keep workplace contacts and
+            team information organized.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- FORMS -->
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+
+            dynamic_form
+
+          </i>
+
+
+          <h6>
+
+            Forms & Surveys
+
+          </h6>
+
+
+          <p>
+
+            Create forms and surveys for
+            collecting structured information.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ANALYTICS -->
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+
+            insights
+
+          </i>
+
+
+          <h6>
+
+            Reports & Analytics
+
+          </h6>
+
+
+          <p>
+
+            Review project activity,
+            productivity, progress,
+            and business information.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     PRODUCTIVITY
+========================================= -->
+
+<div class="productivity">
+
+  <div class="container">
+
+
+    <h5 class="section-heading">
+
+      One Connected Workspace
+
+    </h5>
+
 
     <p class="section-description">
-      A simple workflow for organizing everyday office activity.
+
+      Connect the tools your team uses
+      throughout the working day.
+
     </p>
 
 
     <div class="row">
 
-      <div class="col s12 m3 step">
 
-        <div class="step-number">
-          1
-        </div>
+      <div class="col s6 m3 productivity-item">
 
-        <i class="material-icons medium">
-          dashboard
+        <i class="material-icons color-blue">
+
+          edit_document
+
         </i>
 
+
         <h6>
-          Set Up Workspace
+
+          Create
+
         </h6>
 
+
         <p>
-          Create your workspace and organize projects
-          according to your team's needs.
+
+          Documents & Content
+
         </p>
 
       </div>
 
 
-      <div class="col s12 m3 step">
+      <div class="col s6 m3 productivity-item">
 
-        <div class="step-number">
-          2
-        </div>
+        <i class="material-icons color-green">
 
-        <i class="material-icons medium">
-          assignment
+          table_chart
+
         </i>
 
+
         <h6>
-          Create Projects
+
+          Analyze
+
         </h6>
 
+
         <p>
-          Add projects, tasks, documents, deadlines,
-          and relevant information.
+
+          Data & Reports
+
         </p>
 
       </div>
 
 
-      <div class="col s12 m3 step">
+      <div class="col s6 m3 productivity-item">
 
-        <div class="step-number">
-          3
-        </div>
+        <i class="material-icons color-orange">
 
-        <i class="material-icons medium">
+          present_to_all
+
+        </i>
+
+
+        <h6>
+
+          Present
+
+        </h6>
+
+
+        <p>
+
+          Ideas & Projects
+
+        </p>
+
+      </div>
+
+
+      <div class="col s6 m3 productivity-item">
+
+        <i class="material-icons color-purple">
+
           groups
+
         </i>
 
+
         <h6>
+
           Collaborate
+
         </h6>
 
+
         <p>
-          Coordinate work, share updates, and keep
-          everyone informed.
+
+          Teams & Workspaces
+
         </p>
 
       </div>
 
-
-      <div class="col s12 m3 step">
-
-        <div class="step-number">
-          4
-        </div>
-
-        <i class="material-icons medium">
-          insights
-        </i>
-
-        <h6>
-          Review Progress
-        </h6>
-
-        <p>
-          Monitor activity and use project information
-          to plan upcoming work.
-        </p>
-
-      </div>
 
     </div>
 
@@ -1213,198 +2626,54 @@
 </div>
 
 
-<!-- =========================
-     SERVICES
-========================= -->
-
-<div class="services-section" id="services">
-
-  <div class="container">
-
-    <h4 class="center section-heading">
-      Office Services
-    </h4>
-
-    <p class="center section-description">
-      Core areas that can be included in a modern
-      workplace management system.
-    </p>
-
-
-    <div class="row">
-
-
-      <div class="col s12 m4">
-
-        <div class="service-box">
-
-          <i class="material-icons">
-            work
-          </i>
-
-          <h6>
-            Project Management
-          </h6>
-
-          <p>
-            Organize projects, milestones, responsibilities,
-            deadlines, and progress updates.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col s12 m4">
-
-        <div class="service-box">
-
-          <i class="material-icons">
-            cloud_upload
-          </i>
-
-          <h6>
-            File & Document Center
-          </h6>
-
-          <p>
-            Maintain structured folders for reports,
-            presentations, forms, and project files.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col s12 m4">
-
-        <div class="service-box">
-
-          <i class="material-icons">
-            people
-          </i>
-
-          <h6>
-            Team Directory
-          </h6>
-
-          <p>
-            Maintain team information and make it easier
-            to identify project responsibilities.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col s12 m4">
-
-        <div class="service-box">
-
-          <i class="material-icons">
-            event
-          </i>
-
-          <h6>
-            Meetings & Events
-          </h6>
-
-          <p>
-            Organize meetings, appointments, events,
-            deadlines, and important office dates.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col s12 m4">
-
-        <div class="service-box">
-
-          <i class="material-icons">
-            notifications
-          </i>
-
-          <h6>
-            Announcements
-          </h6>
-
-          <p>
-            Publish important project and workplace
-            updates in one central location.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col s12 m4">
-
-        <div class="service-box">
-
-          <i class="material-icons">
-            support_agent
-          </i>
-
-          <h6>
-            Support Center
-          </h6>
-
-          <p>
-            Provide a central place for questions,
-            requests, and project assistance.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
+<!-- =========================================
      SECURITY
-========================= -->
+========================================= -->
 
-<div class="security-section" id="security">
+<div class="security-section">
 
   <div class="container">
 
+
     <h4 class="center section-heading">
-      Workplace Principles
+
+      Built Around Responsible Work
+
     </h4>
 
+
     <p class="center section-description">
-      Important principles for designing a responsible
-      workplace-management platform.
+
+      Security and privacy concepts can be
+      incorporated into a real workplace platform.
+
     </p>
 
 
     <div class="row">
 
+
       <div class="col s12 m4 security-item">
 
         <i class="material-icons">
+
           lock
+
         </i>
 
+
         <h6>
+
           Privacy
+
         </h6>
 
+
         <p>
-          Keep workplace information organized and
-          limit access to appropriate users.
+
+          Keep workplace information protected
+          with appropriate access controls.
+
         </p>
 
       </div>
@@ -1413,16 +2682,24 @@
       <div class="col s12 m4 security-item">
 
         <i class="material-icons">
+
           verified_user
+
         </i>
 
+
         <h6>
-          Account Protection
+
+          Secure Access
+
         </h6>
 
+
         <p>
-          Use appropriate authentication and access
-          controls for workplace accounts.
+
+          Design authentication and account
+          management around secure practices.
+
         </p>
 
       </div>
@@ -1431,19 +2708,28 @@
       <div class="col s12 m4 security-item">
 
         <i class="material-icons">
+
           backup
+
         </i>
 
+
         <h6>
+
           Data Management
+
         </h6>
 
+
         <p>
-          Maintain sensible procedures for storing,
-          organizing, and backing up important information.
+
+          Organize, store, and recover important
+          workplace files and information.
+
         </p>
 
       </div>
+
 
     </div>
 
@@ -1452,31 +2738,48 @@
 </div>
 
 
-<!-- =========================
+<!-- =========================================
      SUPPORT
-========================= -->
+========================================= -->
 
-<div class="chat-section" id="support">
+<div
+  class="chat-section"
+  id="support"
+>
 
   <h4>
-    Need Help With the Project?
+
+    Need Help?
+
   </h4>
 
+
   <p>
-    Contact the GlobalOffice Project support area for
-    questions, feedback, or assistance with this
-    independent project.
+
+    Have questions about the GlobalOffice Project?
+    Send your details through the contact form
+    or use the support chat.
+
   </p>
+
 
   <a
     href="#"
     class="btn chat-btn waves-effect waves-light"
-    onclick="smartsupp('chat:open'); return false;"
+    onclick="
+      if (typeof smartsupp === 'function') {
+        smartsupp('chat:open');
+      }
+      return false;
+    "
   >
+
     Open Support Chat
 
     <i class="material-icons right">
+
       chat
+
     </i>
 
   </a>
@@ -1484,36 +2787,51 @@
 </div>
 
 
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
   <div class="container center">
 
+
     <div class="footer-brand">
+
       GlobalOffice Project
+
     </div>
+
 
     <div>
-      Workplace Management & Collaboration
+
+      Productivity · Collaboration · Workplace Tools
+
     </div>
 
+
     <div class="footer-note">
-      © 2026 GlobalOffice Project · Independent personal project
+
+      © 2026 GlobalOffice Project ·
+      Independent personal project
+
     </div>
+
 
   </div>
 
 </footer>
 
 
-<!-- Materialize JS -->
+<!-- =========================================
+     MATERIALIZE JAVASCRIPT
+========================================= -->
 
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
 </script>
 
+
 </body>
+
 </html>
