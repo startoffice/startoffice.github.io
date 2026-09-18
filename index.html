@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Heritage Office | Personal Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlobalOffice Project | Workplace Management</title>
 
   <!-- Materialize CSS -->
   <link
@@ -18,135 +18,200 @@
   >
 
   <style>
+
     :root {
-      --primary: #1f5fae;
-      --primary-dark: #17477f;
-      --accent: #f05126;
-      --light-bg: #f4f7fb;
-      --border: #e1e7ef;
-      --text: #263238;
-      --muted: #687785;
+      --primary: #165d9c;
+      --primary-dark: #0d426f;
+      --secondary: #2384c6;
+      --accent: #18a673;
+      --light: #f4f7fa;
+      --border: #dfe6ed;
+      --text: #263746;
+      --muted: #6d7b87;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      background: var(--light-bg);
+      background: var(--light);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
+
     nav {
+      height: 68px;
+      line-height: 68px;
       background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
     }
 
     .nav-wrapper {
-      min-height: 64px;
+      height: 68px;
     }
 
     .brand-logo {
       display: flex !important;
       align-items: center;
-      height: 64px;
+      height: 68px;
+      color: var(--text) !important;
       font-size: 21px !important;
-      font-weight: 600;
-      color: #263238 !important;
+      font-weight: 700;
     }
 
-    .brand-logo img {
+    .brand-symbol {
+      width: 38px;
       height: 38px;
       margin-right: 12px;
+      border-radius: 7px;
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 21px;
+      font-weight: bold;
     }
 
     .nav-links {
       float: right;
-      line-height: 64px;
     }
 
     .nav-links a {
-      color: #54636f;
-      margin-left: 25px;
+      color: #52616d;
       font-size: 14px;
+      margin-left: 24px;
+      transition: .2s;
     }
 
     .nav-links a:hover {
       color: var(--primary);
     }
 
-    /* NOTICE */
+    /* =========================
+       PROJECT NOTICE
+    ========================= */
+
     .project-notice {
-      background: #fff8e1;
-      border-bottom: 1px solid #f0dfaa;
-      color: #66551d;
-      padding: 10px 20px;
+      background: #edf6fc;
+      color: #315b78;
+      border-bottom: 1px solid #d4e8f5;
       text-align: center;
-      font-size: 13px;
+      padding: 9px 15px;
+      font-size: 12px;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
+      position: relative;
+      padding: 100px 20px 125px;
+      color: white;
+      text-align: center;
+
       background:
         linear-gradient(
-          rgba(20, 48, 79, 0.88),
-          rgba(20, 48, 79, 0.88)
+          rgba(10, 43, 72, .91),
+          rgba(16, 84, 132, .90)
         ),
-        url('https://leweshistory.org.uk/wp-content/uploads/2020/05/myheritage-banner.png');
+        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85");
 
       background-size: cover;
       background-position: center;
-
-      padding: 85px 20px 100px;
-      text-align: center;
-      color: white;
     }
 
-    .hero .eyebrow {
+    .hero-label {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
       text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      opacity: 0.8;
-      margin-bottom: 12px;
+      letter-spacing: 1.7px;
+      font-size: 11px;
+      margin-bottom: 18px;
     }
 
     .hero h3 {
-      margin: 0 0 15px;
+      font-size: 42px;
+      margin: 0 0 18px;
       font-weight: 600;
     }
 
     .hero p {
-      max-width: 700px;
+      max-width: 760px;
       margin: auto;
       font-size: 17px;
-      line-height: 1.7;
-      opacity: 0.94;
+      line-height: 1.8;
+      opacity: .93;
     }
 
-    /* FORM */
+    .hero-buttons {
+      margin-top: 30px;
+    }
+
+    .hero-btn {
+      margin: 5px;
+      border-radius: 4px;
+      text-transform: none;
+      font-weight: 600;
+    }
+
+    .hero-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .hero-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.6);
+    }
+
+    /* =========================
+       MAIN CARD
+    ========================= */
+
     .form-card {
-      margin-top: -65px;
+      margin-top: -70px;
       position: relative;
-      z-index: 2;
+      z-index: 5;
     }
 
-    .office-card {
+    .main-card {
+      background: white;
       border-radius: 8px;
       border: 1px solid var(--border);
-      box-shadow: 0 8px 25px rgba(31, 61, 89, 0.10);
+      box-shadow: 0 12px 35px rgba(20,55,80,.12);
     }
 
-    .office-card .card-content {
+    .main-card .card-content {
       padding: 35px;
     }
 
     .card-title {
-      color: #263238;
+      font-size: 23px !important;
+      font-weight: 600 !important;
+      color: var(--text);
     }
 
-    .form-intro {
+    .card-description {
       color: var(--muted);
-      margin-bottom: 25px;
+      line-height: 1.7;
+      margin-bottom: 28px;
     }
 
     .input-field input:focus,
@@ -160,56 +225,76 @@
       color: var(--primary) !important;
     }
 
-    .btn-main {
-      background-color: var(--primary);
+    .submit-btn {
+      background: var(--primary);
       border-radius: 4px;
-      padding: 0 25px;
       text-transform: none;
       font-weight: 600;
+      padding: 0 25px;
     }
 
-    .btn-main:hover {
-      background-color: var(--primary-dark);
+    .submit-btn:hover {
+      background: var(--primary-dark);
     }
 
-    /* SECTION HEADERS */
+    /* =========================
+       SECTION
+    ========================= */
+
     .section-heading {
-      color: #263238;
       font-weight: 600;
+      color: var(--text);
     }
 
     .section-description {
-      max-width: 680px;
-      margin: 0 auto 35px;
+      max-width: 720px;
+      margin: 0 auto 38px;
       color: var(--muted);
       line-height: 1.7;
     }
 
-    /* WHY CHOOSE */
+    /* =========================
+       FEATURES
+    ========================= */
+
     .feature-card {
       height: 100%;
-      border-radius: 7px;
+      background: white;
       border: 1px solid var(--border);
+      border-radius: 7px;
       box-shadow: none;
-      transition: 0.2s ease;
+      transition: .2s ease;
     }
 
     .feature-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(31, 61, 89, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(20,55,80,.09);
     }
 
     .feature-card .card-content {
-      padding: 30px 25px;
+      padding: 28px;
     }
 
-    .icon-color {
+    .feature-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 8px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf3fa;
       color: var(--primary);
     }
 
+    .feature-icon i {
+      font-size: 30px;
+    }
+
     .feature-card h5 {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 600;
+      margin-top: 20px;
     }
 
     .feature-card p {
@@ -217,93 +302,176 @@
       line-height: 1.7;
     }
 
-    /* HOW IT WORKS */
-    .how-section {
+    /* =========================
+       OFFICE DASHBOARD
+    ========================= */
+
+    .dashboard-section {
       background: #ffffff;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       padding: 65px 20px;
-      margin-top: 30px;
+    }
+
+    .dashboard-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .dashboard-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .progress {
+      background: #dce8f1;
+    }
+
+    .progress .determinate {
+      background: var(--secondary);
+    }
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .how-section {
+      padding: 65px 20px;
     }
 
     .step {
-      position: relative;
-      padding: 10px 25px;
+      padding: 15px 25px;
     }
 
     .step-number {
-      width: 38px;
-      height: 38px;
-      line-height: 38px;
-      margin: 0 auto 15px;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      margin: auto;
       border-radius: 50%;
-      background: #eaf2fb;
+      background: #e9f3fa;
       color: var(--primary);
       font-weight: bold;
     }
 
     .step h6 {
-      font-size: 16px;
       font-weight: 600;
+      font-size: 16px;
+      margin-top: 15px;
     }
 
     .step p {
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* OFFICE SERVICES */
+    /* =========================
+       OFFICE SERVICES
+    ========================= */
+
     .services-section {
-      padding: 60px 20px;
+      background: #f0f5f9;
+      padding: 65px 20px;
     }
 
     .service-box {
-      background: #ffffff;
+      background: white;
       border: 1px solid var(--border);
-      padding: 25px;
-      min-height: 180px;
       border-radius: 7px;
+      padding: 27px;
+      min-height: 205px;
+      margin-bottom: 20px;
+    }
+
+    .service-box i {
+      color: var(--primary);
+      font-size: 30px;
     }
 
     .service-box h6 {
+      font-size: 17px;
       font-weight: 600;
-      font-size: 16px;
     }
 
     .service-box p {
       color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* TRUST */
-    .trust-section {
-      background: #eef4fa;
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .trust-section h5 {
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .trust-section p {
-      max-width: 750px;
-      margin: auto;
-      color: var(--muted);
       line-height: 1.7;
     }
 
-    /* CHAT */
+    /* =========================
+       SECURITY
+    ========================= */
+
+    .security-section {
+      background: white;
+      padding: 60px 20px;
+    }
+
+    .security-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .security-item i {
+      color: var(--accent);
+      font-size: 38px;
+    }
+
+    .security-item h6 {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .security-item p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* =========================
+       ANNOUNCEMENT
+    ========================= */
+
+    .announcement {
+      background: #eaf5ff;
+      border-left: 4px solid var(--primary);
+      padding: 22px 25px;
+      border-radius: 4px;
+      margin-top: 25px;
+    }
+
+    .announcement strong {
+      color: var(--primary-dark);
+    }
+
+    .announcement p {
+      color: #526b7c;
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       SUPPORT
+    ========================= */
+
     .chat-section {
-      background: linear-gradient(
-        135deg,
-        #17477f,
-        #2877c5
-      );
-      padding: 65px 20px;
+      background:
+        linear-gradient(
+          135deg,
+          #0d426f,
+          #1674b5
+        );
+
       color: white;
       text-align: center;
+      padding: 70px 20px;
     }
 
     .chat-section h4 {
@@ -311,11 +479,13 @@
     }
 
     .chat-section p {
-      opacity: 0.9;
-      margin-bottom: 25px;
+      max-width: 650px;
+      margin: 10px auto 28px;
+      opacity: .9;
+      line-height: 1.7;
     }
 
-    .chat-button {
+    .chat-btn {
       background: white;
       color: var(--primary);
       border-radius: 4px;
@@ -323,46 +493,57 @@
       font-weight: 600;
     }
 
-    .chat-button:hover {
-      background: #f2f5f8;
-    }
+    /* =========================
+       FOOTER
+    ========================= */
 
-    /* FOOTER */
     footer {
       background: #ffffff !important;
+      color: #687782 !important;
       border-top: 1px solid var(--border);
-      color: #667580 !important;
-      padding: 25px 0;
+      padding: 30px 0;
     }
 
-    .footer-title {
-      color: #263238;
+    .footer-brand {
+      color: var(--text);
+      font-size: 18px;
       font-weight: 600;
-      margin-bottom: 5px;
     }
 
-    .footer-small {
+    .footer-note {
       font-size: 12px;
-      color: #89949d;
+      color: #8a969e;
+      margin-top: 7px;
     }
 
-    @media (max-width: 600px) {
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 600px) {
+
       .nav-links {
         display: none;
       }
 
       .hero {
-        padding: 65px 20px 85px;
+        padding: 70px 20px 105px;
       }
 
       .hero h3 {
-        font-size: 28px;
+        font-size: 29px;
       }
 
-      .office-card .card-content {
+      .hero p {
+        font-size: 15px;
+      }
+
+      .main-card .card-content {
         padding: 25px 20px;
       }
+
     }
+
   </style>
 
   <!-- Optional Live Chat -->
@@ -374,10 +555,12 @@
       var s, c, o = smartsupp = function() {
         o._.push(arguments)
       };
+
       o._ = [];
 
       s = d.getElementsByTagName('script')[0];
       c = d.createElement('script');
+
       c.type = 'text/javascript';
       c.charset = 'utf-8';
       c.async = true;
@@ -391,65 +574,110 @@
 
 <body>
 
-<!-- NAVBAR -->
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <nav>
+
   <div class="nav-wrapper container">
 
     <a href="#" class="brand-logo">
-      <img
-        src="https://myheritagepage.github.io/myheritagelogo.png"
-        alt="Heritage Project Logo"
-      >
-      Heritage Office
+
+      <span class="brand-symbol">
+        G
+      </span>
+
+      GlobalOffice Project
+
     </a>
 
     <div class="nav-links">
+
+      <a href="#features">Features</a>
       <a href="#services">Services</a>
-      <a href="#how">How It Works</a>
+      <a href="#security">Security</a>
       <a href="#support">Support</a>
+
     </div>
 
   </div>
+
 </nav>
 
-<!-- PERSONAL PROJECT NOTICE -->
+
+<!-- =========================
+     PROJECT NOTICE
+========================= -->
+
 <div class="project-notice">
+
   <i class="material-icons tiny">info_outline</i>
+
   &nbsp;
-  Independent personal project — not affiliated with or endorsed by MyHeritage.
+
+  Independent personal project — GlobalOffice Project is a
+  standalone workplace-management concept.
+
 </div>
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
+
 <div class="hero">
 
-  <div class="eyebrow">
-    Personal Heritage Project
+  <div class="hero-label">
+    Modern Workplace Platform
   </div>
 
-  <h3>Heritage Office & Support Center</h3>
+  <h3>
+    Welcome to GlobalOffice Project
+  </h3>
 
   <p>
-    A simple workspace for organizing family-history resources,
-    managing project information, and getting assistance with
-    your personal heritage research.
+    A centralized workspace concept designed to help teams
+    organize documents, coordinate projects, manage tasks,
+    communicate efficiently, and keep everyday office work
+    in one place.
   </p>
+
+  <div class="hero-buttons">
+
+    <a href="#features"
+       class="btn hero-btn hero-primary">
+      Explore Features
+    </a>
+
+    <a href="#support"
+       class="btn hero-btn hero-secondary">
+      Contact Support
+    </a>
+
+  </div>
 
 </div>
 
-<!-- FORM -->
+
+<!-- =========================
+     CONTACT CARD
+========================= -->
+
 <div class="container form-card">
 
-  <div class="card office-card">
+  <div class="card main-card">
 
     <div class="card-content">
 
       <span class="card-title">
-        <b>Contact the Heritage Office</b>
+        Contact GlobalOffice
       </span>
 
-      <p class="form-intro">
-        Send a message about your family-history project or request
-        help with organizing your research.
+      <p class="card-description">
+        Have a question about this personal project?
+        Send a message and provide some details about
+        your request.
       </p>
 
       <form
@@ -457,21 +685,18 @@
         method="POST"
       >
 
-        <!-- ACCESS KEY -->
         <input
           type="hidden"
           name="access_key"
           value="727472ef-0e91-4efc-b421-2c3d16398117"
         >
 
-        <!-- SUBJECT -->
         <input
           type="hidden"
           name="subject"
-          value="Heritage Office Support Request"
+          value="GlobalOffice Project Contact"
         >
 
-        <!-- REDIRECT -->
         <input
           type="hidden"
           name="redirect"
@@ -480,58 +705,87 @@
 
         <div class="row">
 
-          <!-- NAME -->
           <div class="input-field col s12 m6">
-            <i class="material-icons prefix">person</i>
+
+            <i class="material-icons prefix">
+              person
+            </i>
+
             <input
               name="name"
               type="text"
               required
             >
+
             <label>Full Name</label>
+
           </div>
 
-          <!-- EMAIL -->
+
           <div class="input-field col s12 m6">
-            <i class="material-icons prefix">email</i>
+
+            <i class="material-icons prefix">
+              email
+            </i>
+
             <input
               name="email"
               type="email"
               required
             >
+
             <label>Email Address</label>
+
           </div>
 
-          <!-- REFERENCE -->
+
           <div class="input-field col s12">
-            <i class="material-icons prefix">folder</i>
+
+            <i class="material-icons prefix">
+              business
+            </i>
+
             <input
-              name="reference"
+              name="organization"
               type="text"
             >
-            <label>Project Reference (Optional)</label>
+
+            <label>Organization / Team (Optional)</label>
+
           </div>
 
-          <!-- MESSAGE -->
+
           <div class="input-field col s12">
-            <i class="material-icons prefix">message</i>
+
+            <i class="material-icons prefix">
+              message
+            </i>
+
             <textarea
               name="message"
               class="materialize-textarea"
               required
             ></textarea>
+
             <label>How Can We Help?</label>
+
           </div>
 
-          <!-- BUTTON -->
+
           <div class="col s12 center">
+
             <button
-              class="btn waves-effect waves-light btn-main"
               type="submit"
+              class="btn waves-effect waves-light submit-btn"
             >
               Submit Request
-              <i class="material-icons right">send</i>
+
+              <i class="material-icons right">
+                send
+              </i>
+
             </button>
+
           </div>
 
         </div>
@@ -544,150 +798,410 @@
 
 </div>
 
-<!-- WHY CHOOSE -->
-<div class="container section">
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<div class="container section" id="features">
 
   <h4 class="center section-heading">
-    Heritage Project Resources
+    Workplace Features
   </h4>
 
   <p class="center section-description">
-    Keep your family-history work organized with simple tools
-    and resources designed for personal research projects.
+    GlobalOffice Project brings common workplace activities
+    together into a single organized environment.
   </p>
+
 
   <div class="row">
 
+
+    <!-- Documents -->
+
     <div class="col s12 m4">
+
       <div class="card feature-card center">
 
         <div class="card-content">
 
-          <i class="material-icons large icon-color">
-            account_tree
-          </i>
+          <div class="feature-icon">
+            <i class="material-icons">
+              folder
+            </i>
+          </div>
 
-          <h5>Family Tree Research</h5>
+          <h5>Document Management</h5>
 
           <p>
-            Organize family relationships and keep track of
-            important discoveries as your research develops.
+            Organize project files, office documents,
+            reports, forms, and shared resources.
           </p>
 
         </div>
 
       </div>
+
     </div>
 
+
+    <!-- Tasks -->
+
     <div class="col s12 m4">
+
       <div class="card feature-card center">
 
         <div class="card-content">
 
-          <i class="material-icons large icon-color">
-            folder_open
-          </i>
+          <div class="feature-icon">
+            <i class="material-icons">
+              checklist
+            </i>
+          </div>
 
-          <h5>Research Records</h5>
+          <h5>Task Management</h5>
 
           <p>
-            Keep notes about documents, historical records,
-            sources, and other information related to your project.
+            Track assignments, deadlines, priorities,
+            progress, and outstanding work.
           </p>
 
         </div>
 
       </div>
+
     </div>
 
+
+    <!-- Team -->
+
     <div class="col s12 m4">
+
       <div class="card feature-card center">
 
         <div class="card-content">
 
-          <i class="material-icons large icon-color">
-            photo_library
-          </i>
+          <div class="feature-icon">
+            <i class="material-icons">
+              groups
+            </i>
+          </div>
 
-          <h5>Preserve Memories</h5>
+          <h5>Team Collaboration</h5>
 
           <p>
-            Create an organized collection of family photographs,
-            stories, documents, and memories.
+            Keep teams connected with shared projects,
+            communication tools, and centralized information.
           </p>
 
         </div>
 
       </div>
+
+    </div>
+
+
+    <!-- Calendar -->
+
+    <div class="col s12 m4">
+
+      <div class="card feature-card center">
+
+        <div class="card-content">
+
+          <div class="feature-icon">
+            <i class="material-icons">
+              calendar_month
+            </i>
+          </div>
+
+          <h5>Calendar & Scheduling</h5>
+
+          <p>
+            Keep track of meetings, deadlines, appointments,
+            events, and important project dates.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Reports -->
+
+    <div class="col s12 m4">
+
+      <div class="card feature-card center">
+
+        <div class="card-content">
+
+          <div class="feature-icon">
+            <i class="material-icons">
+              analytics
+            </i>
+          </div>
+
+          <h5>Reports & Insights</h5>
+
+          <p>
+            Review project progress and organize useful
+            information for planning and decision-making.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Communication -->
+
+    <div class="col s12 m4">
+
+      <div class="card feature-card center">
+
+        <div class="card-content">
+
+          <div class="feature-icon">
+            <i class="material-icons">
+              forum
+            </i>
+          </div>
+
+          <h5>Office Communication</h5>
+
+          <p>
+            Provide a central place for announcements,
+            updates, discussions, and project communication.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
 </div>
 
-<!-- HOW IT WORKS -->
-<div class="how-section" id="how">
+
+<!-- =========================
+     DASHBOARD PREVIEW
+========================= -->
+
+<div class="dashboard-section">
+
+  <div class="container">
+
+    <h4 class="center section-heading">
+      Office Overview
+    </h4>
+
+    <p class="center section-description">
+      A simple dashboard-style overview for monitoring
+      everyday workplace activity.
+    </p>
+
+
+    <div class="row">
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-box center">
+
+          <div class="dashboard-number">
+            24
+          </div>
+
+          <div class="dashboard-label">
+            Active Projects
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-box center">
+
+          <div class="dashboard-number">
+            68
+          </div>
+
+          <div class="dashboard-label">
+            Open Tasks
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-box center">
+
+          <div class="dashboard-number">
+            142
+          </div>
+
+          <div class="dashboard-label">
+            Shared Documents
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m3">
+
+        <div class="dashboard-box center">
+
+          <div class="dashboard-number">
+            12
+          </div>
+
+          <div class="dashboard-label">
+            Upcoming Meetings
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="announcement">
+
+      <strong>
+        <i class="material-icons tiny">campaign</i>
+        Office Announcement
+      </strong>
+
+      <p>
+        Keep project information organized and review
+        upcoming tasks regularly to maintain an efficient
+        workplace workflow.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<div class="how-section">
 
   <div class="container center">
 
     <h4 class="section-heading">
-      How It Works
+      How GlobalOffice Works
     </h4>
 
     <p class="section-description">
-      A straightforward process for keeping your personal
-      heritage research organized.
+      A simple workflow for organizing everyday office activity.
     </p>
+
 
     <div class="row">
 
-      <div class="col s12 m4 step">
+      <div class="col s12 m3 step">
 
-        <div class="step-number">1</div>
+        <div class="step-number">
+          1
+        </div>
 
-        <i class="material-icons medium icon-color">
-          person_add
+        <i class="material-icons medium">
+          dashboard
         </i>
 
-        <h6>Start Your Project</h6>
+        <h6>
+          Set Up Workspace
+        </h6>
 
         <p>
-          Begin with the family members and information
-          you already know.
+          Create your workspace and organize projects
+          according to your team's needs.
         </p>
 
       </div>
 
-      <div class="col s12 m4 step">
 
-        <div class="step-number">2</div>
+      <div class="col s12 m3 step">
 
-        <i class="material-icons medium icon-color">
-          search
+        <div class="step-number">
+          2
+        </div>
+
+        <i class="material-icons medium">
+          assignment
         </i>
 
-        <h6>Organize Your Research</h6>
+        <h6>
+          Create Projects
+        </h6>
 
         <p>
-          Record sources, documents, dates, photographs,
-          and other useful discoveries.
+          Add projects, tasks, documents, deadlines,
+          and relevant information.
         </p>
 
       </div>
 
-      <div class="col s12 m4 step">
 
-        <div class="step-number">3</div>
+      <div class="col s12 m3 step">
 
-        <i class="material-icons medium icon-color">
-          archive
+        <div class="step-number">
+          3
+        </div>
+
+        <i class="material-icons medium">
+          groups
         </i>
 
-        <h6>Preserve Your Findings</h6>
+        <h6>
+          Collaborate
+        </h6>
 
         <p>
-          Keep your collected information organized so
-          it can be reviewed and preserved over time.
+          Coordinate work, share updates, and keep
+          everyone informed.
+        </p>
+
+      </div>
+
+
+      <div class="col s12 m3 step">
+
+        <div class="step-number">
+          4
+        </div>
+
+        <i class="material-icons medium">
+          insights
+        </i>
+
+        <h6>
+          Review Progress
+        </h6>
+
+        <p>
+          Monitor activity and use project information
+          to plan upcoming work.
         </p>
 
       </div>
@@ -698,7 +1212,11 @@
 
 </div>
 
-<!-- SERVICES -->
+
+<!-- =========================
+     SERVICES
+========================= -->
+
 <div class="services-section" id="services">
 
   <div class="container">
@@ -708,62 +1226,139 @@
     </h4>
 
     <p class="center section-description">
-      Helpful areas for managing your independent family-history project.
+      Core areas that can be included in a modern
+      workplace management system.
     </p>
+
 
     <div class="row">
 
+
       <div class="col s12 m4">
 
         <div class="service-box">
 
-          <i class="material-icons icon-color">
-            assignment
+          <i class="material-icons">
+            work
           </i>
 
-          <h6>Project Assistance</h6>
+          <h6>
+            Project Management
+          </h6>
 
           <p>
-            Get help organizing your research notes and
-            planning the next stage of your project.
+            Organize projects, milestones, responsibilities,
+            deadlines, and progress updates.
           </p>
 
         </div>
 
       </div>
 
+
       <div class="col s12 m4">
 
         <div class="service-box">
 
-          <i class="material-icons icon-color">
-            description
+          <i class="material-icons">
+            cloud_upload
           </i>
 
-          <h6>Document Organization</h6>
+          <h6>
+            File & Document Center
+          </h6>
 
           <p>
-            Maintain a clear structure for historical
-            documents, references, and family records.
+            Maintain structured folders for reports,
+            presentations, forms, and project files.
           </p>
 
         </div>
 
       </div>
 
+
       <div class="col s12 m4">
 
         <div class="service-box">
 
-          <i class="material-icons icon-color">
+          <i class="material-icons">
+            people
+          </i>
+
+          <h6>
+            Team Directory
+          </h6>
+
+          <p>
+            Maintain team information and make it easier
+            to identify project responsibilities.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+            event
+          </i>
+
+          <h6>
+            Meetings & Events
+          </h6>
+
+          <p>
+            Organize meetings, appointments, events,
+            deadlines, and important office dates.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
+            notifications
+          </i>
+
+          <h6>
+            Announcements
+          </h6>
+
+          <p>
+            Publish important project and workplace
+            updates in one central location.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col s12 m4">
+
+        <div class="service-box">
+
+          <i class="material-icons">
             support_agent
           </i>
 
-          <h6>General Support</h6>
+          <h6>
+            Support Center
+          </h6>
 
           <p>
-            Send a support request whenever you need
-            assistance with this personal project.
+            Provide a central place for questions,
+            requests, and project assistance.
           </p>
 
         </div>
@@ -776,69 +1371,146 @@
 
 </div>
 
-<!-- TRUST / INFORMATION -->
-<div class="trust-section">
+
+<!-- =========================
+     SECURITY
+========================= -->
+
+<div class="security-section" id="security">
 
   <div class="container">
 
-    <h5>
-      Built for Personal Family-History Research
-    </h5>
+    <h4 class="center section-heading">
+      Workplace Principles
+    </h4>
 
-    <p>
-      This website is an independent personal project created
-      to provide a simple office-style workspace for organizing
-      heritage research. It is not an official MyHeritage website
-      or support service.
+    <p class="center section-description">
+      Important principles for designing a responsible
+      workplace-management platform.
     </p>
+
+
+    <div class="row">
+
+      <div class="col s12 m4 security-item">
+
+        <i class="material-icons">
+          lock
+        </i>
+
+        <h6>
+          Privacy
+        </h6>
+
+        <p>
+          Keep workplace information organized and
+          limit access to appropriate users.
+        </p>
+
+      </div>
+
+
+      <div class="col s12 m4 security-item">
+
+        <i class="material-icons">
+          verified_user
+        </i>
+
+        <h6>
+          Account Protection
+        </h6>
+
+        <p>
+          Use appropriate authentication and access
+          controls for workplace accounts.
+        </p>
+
+      </div>
+
+
+      <div class="col s12 m4 security-item">
+
+        <i class="material-icons">
+          backup
+        </i>
+
+        <h6>
+          Data Management
+        </h6>
+
+        <p>
+          Maintain sensible procedures for storing,
+          organizing, and backing up important information.
+        </p>
+
+      </div>
+
+    </div>
 
   </div>
 
 </div>
 
-<!-- CHAT -->
+
+<!-- =========================
+     SUPPORT
+========================= -->
+
 <div class="chat-section" id="support">
 
-  <h4>Need Project Assistance?</h4>
+  <h4>
+    Need Help With the Project?
+  </h4>
 
   <p>
-    Use the contact form above or open the chat to discuss
-    questions about this personal project.
+    Contact the GlobalOffice Project support area for
+    questions, feedback, or assistance with this
+    independent project.
   </p>
 
   <a
-    class="btn chat-button waves-effect waves-light"
     href="#"
+    class="btn chat-btn waves-effect waves-light"
     onclick="smartsupp('chat:open'); return false;"
   >
     Open Support Chat
-    <i class="material-icons right">chat</i>
+
+    <i class="material-icons right">
+      chat
+    </i>
+
   </a>
 
 </div>
 
-<!-- FOOTER -->
-<footer class="page-footer">
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
 
   <div class="container center">
 
-    <div class="footer-title">
-      Heritage Office
+    <div class="footer-brand">
+      GlobalOffice Project
     </div>
 
     <div>
-      © 2026 Independent Personal Project
+      Workplace Management & Collaboration
     </div>
 
-    <div class="footer-small">
-      Not affiliated with or endorsed by MyHeritage.
+    <div class="footer-note">
+      © 2026 GlobalOffice Project · Independent personal project
     </div>
 
   </div>
 
 </footer>
 
+
 <!-- Materialize JS -->
+
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
 </script>
